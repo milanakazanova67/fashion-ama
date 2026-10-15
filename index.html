@@ -622,8 +622,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#modal').hidden
 
 /* ——— Claude ——— */
 /* Server mode: the site's own server talks to Claude with the owner's key */
+const API_BASE='https://functions.yandexcloud.net/d4es1j1te416b5fcldms';
 async function server(path,data){
-  const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  const r=await fetch(API_BASE+'?action='+path.split('/').pop(),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
   if(!r.ok){let c='error';try{c=(await r.json()).error||c}catch(e){}throw {code:r.status===429?'rate_limited':c,status:r.status}}
   return r.json();
 }
