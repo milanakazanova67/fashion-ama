@@ -1,0 +1,7 @@
+{
+  "name": "fashion-ama",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FASHION AMA — розовый онлайн-шкаф с ИИ-стилистом",
+  "engines": { "node": ">=18" }
+}
